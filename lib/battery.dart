@@ -1,3 +1,4 @@
+import 'drainer.dart';
 class Battery {
   double getBatteryLife(double capacity,double normalDrain,List<Drainer> drainers) {
 
@@ -9,7 +10,7 @@ class Battery {
         totalDrain += drainers[i].extraDrain; // Add its extra drain to totalDrain
       }
     }
-    return capacity / totalDrain;;//Battery life = how much battery you have ÷ how fast it's draining
+    return capacity / totalDrain;//Battery life = how much battery you have ÷ how fast it's draining
   }
 
   double getChargeTime(double capacity,double chargeSpeed) {
