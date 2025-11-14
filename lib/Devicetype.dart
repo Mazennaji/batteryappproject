@@ -9,10 +9,19 @@ class Devicetype extends StatefulWidget {
 class _State extends State<Devicetype> {
   @override
   Widget build(BuildContext context) {
-    return const DropdownMenu(
+    return DropdownMenu(
       width:240,
-      initialSelection:,
-      dropdownMenuEntries:,
+      initialSelection:devices[0],
+      onSelected:(battery){
+        setState(() {
+          widget.updateBattery(battery as Battery);/*when user selects an option the callback function executes and sends
+          the object to the parent widget to set its state(this.battery=battery)*/
+        });
+      },
+      dropdownMenuEntries:devices.map<DropdownMenuEntry<Battery>>((Battery battery){//maps the entries of the devices list as a dropdown
+        return DropdownMenuEntry(value: battery, label:devices.name);
+
+    }).toList(),
     );
   }
 }
